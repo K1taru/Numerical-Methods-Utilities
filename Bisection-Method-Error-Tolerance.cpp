@@ -7,7 +7,7 @@ double function(double x) {
     return pow(x, 3) - 4;
 } // Example function: f(x) = x^3 - 4 (you can modify this function)
 
-double bisection(double a, double b, double epsilon) {
+double bisection(double a, double b, double Ex) {
     if (function(a) * function(b) >= 0) {
         cout << "Invalid interval: f(a) and f(b) must have opposite signs or f(a) * f(b) < 0.\n";
         return -1;
@@ -15,7 +15,7 @@ double bisection(double a, double b, double epsilon) {
 
     int iteration = 0;
     double c;
-    while ((b - a) >= epsilon) {
+    while (true) { // loop until |f(c)| <= Ex
         c = (a + b) / 2;
         double f_a = function(a);
         double f_b = function(b);
@@ -30,7 +30,8 @@ double bisection(double a, double b, double epsilon) {
         cout << "  f(b) = " << f_b << '\n';
         cout << "  f(c) = " << f_c << "\n\n";
 
-        if (f_c == 0.0)
+        // |f(c)| is <= Ex
+        if (fabs(f_c) <= Ex)
             break;
 
         if (f_a * f_c < 0)
@@ -42,16 +43,16 @@ double bisection(double a, double b, double epsilon) {
 }
 
 int main() {
-    double a, b, epsilon;
+    double a, b, Ex;
     
     cout << "Enter a: ";
     cin >> a;
     cout << "Enter b: ";
     cin >> b;
-    cout << "Enter epsilon threshold: ";
-    cin >> epsilon;
+    cout << "Enter error tolerance (Ex): ";
+    cin >> Ex;
 
-    double root = bisection(a, b, epsilon);
+    double root = bisection(a, b, Ex);
     
     if (root != -1)
         std::cout << "Approximate root: " << std::setprecision(10) << root << '\n';
