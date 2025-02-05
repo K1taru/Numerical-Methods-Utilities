@@ -5,11 +5,11 @@ using namespace std;
 
 double function(double x) {
     return pow(x, 3) - 4;
-} // Example function: f(x) = x² - 4 (root at x = ±2) (you can modify this function)
+} // Example function: f(x) = x^3 - 4 (you can modify this function)
 
 double bisection(double a, double b, double epsilon) {
     if (function(a) * function(b) >= 0) {
-        cout << "Invalid interval: f(a) and f(b) must have opposite signs.\n";
+        cout << "Invalid interval: f(a) and f(b) must have opposite signs or f(a) * f(b) < 0.\n";
         return -1;
     }
 
@@ -42,16 +42,16 @@ double bisection(double a, double b, double epsilon) {
 }
 
 int main() {
-    double a, b, Ex;
+    double a, b, epsilon;
     
     cout << "Enter a: ";
     cin >> a;
     cout << "Enter b: ";
     cin >> b;
-    cout << "Enter Ex: ";
-    cin >> Ex;
+    cout << "Enter epsilon threshold: ";
+    cin >> epsilon;
 
-    double root = bisection(a, b, Ex);
+    double root = bisection(a, b, epsilon);
     
     if (root != -1)
         std::cout << "Approximate root: " << std::setprecision(10) << root << '\n';
