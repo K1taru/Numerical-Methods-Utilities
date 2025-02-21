@@ -7,7 +7,7 @@ double function(double x) {
     return pow(x, 3) - 4;
 } // Example function: f(x) = x^3 - 4 (you can modify this function)
 
-double bisection(double a, double b, double Ex) {
+double bisection(double a, double b, double Ex) { // error tolerance for f(c)
     if (function(a) * function(b) >= 0) {
         cout << "Invalid interval: f(a) and f(b) must have opposite signs or f(a) * f(b) < 0.\n";
         return -1;
