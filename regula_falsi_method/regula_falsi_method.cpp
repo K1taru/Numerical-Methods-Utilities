@@ -7,7 +7,7 @@ double function(double x) {
   return 3 * cos(-2 * x);
 } // Example function in assignment
 
-double regulaFalsi(double a, double b, double Ex) {
+double regulaFalsiMethod(double a, double b, double Ex) {
   if (function(a) * function(b) >= 0) {
     cout << "Invalid interval: f(a) and f(b) must have opposite signs or f(a) * f(b) < 0.\n";
     return -1;
@@ -55,7 +55,7 @@ int main() {
   cout << "Enter error tolerance (Ex): ";
   cin >> Ex;
 
-  double root = regulaFalsi(a, b, Ex);
+  double root = regulaFalsiMethod(a, b, Ex);
 
     if (root != -1)
         cout << "Approximate root: " << std::setprecision(10) << root << '\n\n';
