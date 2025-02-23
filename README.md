@@ -20,11 +20,15 @@ The root approximation is accurate enough when |F(x)| <= Ex.
 * Regula-Falsi-Method.cpp can find one root with a user input [a, b].
 
 
-## Upcoming New Tools and Utilities!
+## Interval Finder
 
-* [a, b] interval finder
-  - For looking up smaller interval.
-  - Reduce iterations for Bisection Method and Regula Falsi Method.
+* Interval finder is used for finding [a, b] interval with user-defined interval size.
+
+* File path: utils/interval_finder.cpp
+
+* smaller interval size reduce iterations for Bisection Method and Regula Falsi Method.
+
+## Upcoming New Tools and Utilities!
 
 * Regula-Falsi-Method
   - Support for multiple roots.
