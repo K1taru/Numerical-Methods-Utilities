@@ -17,7 +17,11 @@ The root approximation is accurate enough when |f(c)| <= Error Tolerance (Ex).
 * Regula-Falsi-Method.cpp uses the result of F(x) as basis.
 The root approximation is accurate enough when |F(x)| <= Ex.
 
-* Regula-Falsi-Method.cpp can find one root with a user input [a, b].
+* Regula-Falsi-Method.cpp can find root/s with a user input [a, b].
+
+* **(New!)**: Now supports multiroots for polynomials
+
+* coefficient based function, only modify coefficients
 
 
 ## Interval Finder
@@ -29,10 +33,6 @@ The root approximation is accurate enough when |F(x)| <= Ex.
 * smaller interval size reduce iterations for Bisection Method and Regula Falsi Method.
 
 ## Upcoming New Tools and Utilities!
-
-* Regula-Falsi-Method
-  - Support for multiple roots.
-  - For polynomials.
 
 * Python graph plotter
   - For plotting interval a, b, and root.
