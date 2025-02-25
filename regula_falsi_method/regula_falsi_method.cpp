@@ -4,7 +4,7 @@
 using namespace std;
 
 double function(double x) {
-  return 3 * cos(-2 * x);
+  return pow(x, 3) + (2 * pow(x, 2)) + (10 * x) - 20 ;
 } // Example function in assignment
 
 double regulaFalsiMethod(double a, double b, double Ex) {
@@ -58,7 +58,7 @@ int main() {
   double root = regulaFalsiMethod(a, b, Ex);
 
     if (root != -1)
-        cout << "Approximate root: " << std::setprecision(10) << root << '\n\n';
+        cout << "Approximate root: " << std::setprecision(10) << root << "\n";
 
   return 0;
 }

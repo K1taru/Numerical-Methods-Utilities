@@ -5,7 +5,7 @@
 using namespace std;
 
 double function(double x) {
-  return pow(x, 3) - 4; // Modify function if needed
+  return (x * log(x)) - 1.2; // Modify function if needed
 }
 
 // Function to find all valid intervals

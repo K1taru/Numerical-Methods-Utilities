@@ -4,7 +4,7 @@
 using namespace std;
 
 double function(double x) {
-    return pow(x, 3) - 4;
+    return cos(x) - (x * exp(x));
 } // Example function: f(x) = x^3 - 4 (you can modify this function)
 
 double bisectionMethod(double a, double b, double Ex) { // error tolerance for f(c)
