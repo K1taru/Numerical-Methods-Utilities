@@ -5,70 +5,56 @@
 using namespace std;
 
 double function(double x) {
-  return (x * log(x)) - 1.2; // Modify function if needed
+  return 3 * cos(-2 * x); // Modify function if needed
 }
 
-// Function to find all valid intervals
-vector<tuple<double, double, double, double>> findIntervals(double intervalSize) {
-  vector<tuple<double, double, double, double>> intervals;
+void findIntervals() {
+  struct Interval {
+    double a, b;
+    double f_a, f_b;
+  };
 
-  double x = 0;
-  double prevX = x, prevF = function(prevX);
+  double x_AxisStart, x_AxisEnd, intervalSize;
 
-  while (x <= 20) {
-    x += intervalSize;
-    double f_x = function(x);
-
-    if (prevF * f_x < 0) {
-      intervals.push_back({prevX, x, prevF, f_x});
-    }
-    prevX = x;
-    prevF = f_x;
-  }
-
-  x = -intervalSize;
-  prevX = 0;
-  prevF = function(prevX);
-
-  while (x >= -20) {
-    double f_x = function(x);
-
-    if (prevF * f_x < 0) {
-      intervals.push_back({prevX, x, prevF, f_x});
-    }
-
-    prevX = x;
-    prevF = f_x;
-    x -= intervalSize;
-  }
-
-  return intervals;
-}
-
-int main() {
-  double intervalSize;
+  cout << "Set x-axis left limit: ";
+  cin >> x_AxisStart;
+  cout << "Set x-axis right limit: ";
+  cin >> x_AxisEnd;
   cout << "Set interval size: ";
   cin >> intervalSize;
 
   if (intervalSize <= 0) {
     cout << "Interval size must be positive.\n";
-    return 1;
+    return;
   }
 
-  vector<tuple<double, double, double, double>> intervals = findIntervals(intervalSize);
+  vector<Interval> intervals;
+  double prevX = x_AxisStart, prevF = function(prevX);
+
+  for (double x = x_AxisStart + intervalSize; x <= x_AxisEnd; x += intervalSize) {
+    double f_x = function(x);
+
+    if (prevF * f_x < 0) {
+      intervals.push_back({prevX, x, prevF, f_x});
+    }
+
+    prevX = x;
+    prevF = f_x;
+  }
 
   if (intervals.empty()) {
     cout << "No valid intervals found.\n";
-  } 
-  else {
+  } else {
     cout.precision(10);
-
-    for (const auto &[a, b, f_a, f_b] : intervals) {
-    cout << "\n[" << a << ", " << b << "]\n";
-    cout << "  f(a)= " << f_a << '\n';
-    cout << "  f(b)= " << f_b << "\n";
+    for (const auto& interval : intervals) {
+      cout << "\n[" << interval.a << ", " << interval.b << "]\n";
+      cout << "  f(a) = " << interval.f_a << '\n';
+      cout << "  f(b) = " << interval.f_b << "\n";
+    }
   }
 }
 
+int main() {
+  findIntervals();
   return 0;
 }

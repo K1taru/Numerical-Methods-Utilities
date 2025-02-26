@@ -4,7 +4,7 @@
 using namespace std;
 
 double function(double x) {
-  return pow(x, 3) + (2 * pow(x, 2)) + (10 * x) - 20 ;
+  return 3 * cos(-2 * x);
 } // Example function in assignment
 
 double regulaFalsiMethod(double a, double b, double Ex) {
