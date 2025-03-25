@@ -37,3 +37,6 @@ The root approximation is accurate enough when |F(x)| <= Ex.
 * Python graph plotter
   - For plotting interval a, b, and root.
   - Graphical representation of Methods.
+
+* Gauss-Jacobi Method
+  - iterative approach
