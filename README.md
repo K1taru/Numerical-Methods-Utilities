@@ -40,3 +40,4 @@ The root approximation is accurate enough when |F(x)| <= Ex.
 
 * Gauss-Jacobi Method
   - iterative approach
+    - this feature will be implemented soon
